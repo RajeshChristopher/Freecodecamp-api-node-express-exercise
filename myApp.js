@@ -5,6 +5,10 @@ console.log("Hello World");
 //app.get("/",function(req,res){
   //res.send("Hello Express");
 //});
+app.use(function middleware(req,res,next){
+  console.log(req.method +" "+ req.path +" - "+ req.ip);
+  next();
+});
 app.get("/",function(req,res){
   res.sendFile(__dirname + "/views/index.html");
 });
