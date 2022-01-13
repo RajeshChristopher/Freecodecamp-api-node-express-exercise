@@ -37,7 +37,14 @@ app.get("/:word/echo",function(req,res){
 
 app.get("/name",function(req,res){
   var {first: firstname, last: lastname} = req.query
+  //var firstname = req.query.first;
+  //var lastname = req.query.last;
   res.json({name: "${firstname} ${lastname}"});
+});
+
+app.post("/name",function(req,res){
+  var string = req.body.first +" "+ req.body.last;
+  res.json({name: string});
 });
 
 
